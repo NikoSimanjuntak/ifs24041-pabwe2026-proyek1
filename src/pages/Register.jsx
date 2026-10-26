@@ -25,7 +25,7 @@ export default function Register() {
         <label htmlFor="password">Password (min. 8 karakter)</label>
         <input id="password" type="password" autoComplete="new-password" minLength={8} required value={f.password} onChange={set('password')} />
         {err && <p className="error" role="alert">{err}</p>}
-        <button className="btn" type="submit">Daftar</button>
+        <button id="btn-submit" className="btn" type="submit">Daftar</button>
       </form>
       <p>Sudah punya akun? <Link to="/auth/login">Masuk</Link></p>
     </main>

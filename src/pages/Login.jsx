@@ -18,12 +18,12 @@ export default function Login() {
       <h1>Masuk ke InternTrack</h1>
       <p className="muted">Kelola semua lamaran magangmu di satu tempat.</p>
       <form onSubmit={submit}>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email" autoComplete="email" required value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} />
+        <label htmlFor="username">Email</label>
+        <input id="username" name="username" type="email" autoComplete="email" required value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} />
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" autoComplete="current-password" required value={f.password} onChange={(e) => setF({ ...f, password: e.target.value })} />
+        <input id="password" name="password" type="password" autoComplete="current-password" required value={f.password} onChange={(e) => setF({ ...f, password: e.target.value })} />
         {err && <p className="error" role="alert">{err}</p>}
-        <button className="btn" type="submit">Masuk</button>
+        <button id="btn-submit" className="btn" type="submit">Masuk</button>
       </form>
       <p>Belum punya akun? <Link to="/auth/register">Daftar</Link></p>
     </main>
