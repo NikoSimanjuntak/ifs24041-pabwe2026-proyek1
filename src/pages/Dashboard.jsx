@@ -14,8 +14,8 @@ export default function Dashboard() {
       .catch((e) => setErr(e.message));
   }, []);
 
-  if (err) return <p className="error" role="alert">{err}</p>;
-  if (!s) return <p role="status">Memuat…</p>;
+  if (err) return <><h1>Dashboard</h1><p className="error" role="alert">{err}</p></>;
+  if (!s) return <><h1>Dashboard</h1><p role="status">Memuat…</p></>;
   const cards = [
     ['Total lamaran', s.total], ['Terkirim', s.byStatus.sudah_melamar], ['Wawancara', s.byStatus.wawancara],
     ['Diterima', s.byStatus.diterima], ['Ditolak', s.byStatus.ditolak],

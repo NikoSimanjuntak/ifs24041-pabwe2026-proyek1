@@ -10,8 +10,8 @@ export default function Statistics() {
   useEffect(() => {
     Promise.all([api('/stats/monthly'), api('/stats/summary')]).then(([a, b]) => { setM(a); setS(b); }).catch((e) => setErr(e.message));
   }, []);
-  if (err) return <p className="error" role="alert">{err}</p>;
-  if (!m) return <p role="status">Memuat…</p>;
+  if (err) return <><h1>Statistik perkembangan</h1><p className="error" role="alert">{err}</p></>;
+  if (!m) return <><h1>Statistik perkembangan</h1><p role="status">Memuat…</p></>;
   const max = Math.max(1, ...m.map((x) => x.total));
 
   return (

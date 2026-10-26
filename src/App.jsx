@@ -10,7 +10,7 @@ import Profile from './pages/Profile.jsx';
 
 function Layout() {
   const { user, loading, logout } = useAuth();
-  if (loading) return <p className="center" role="status">Memuat…</p>;
+  if (loading) return <main className="container"><h1>InternTrack</h1><p role="status">Memuat…</p></main>;
   if (!user) return <Navigate to="/auth/login" replace />;
   const nav = [['/dashboard', 'Dashboard'], ['/applications', 'Lamaran'], ['/schedules', 'Jadwal'], ['/statistics', 'Statistik'], ['/profile', 'Profil']];
   return (
