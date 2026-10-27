@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>16/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,20 +122,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,11 +144,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +163,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,19 +175,19 @@
 import { api } from '../api.js';
 import { STATUS, fmtMonth } from '../constants.js';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Statistics() {</span>
-  const [m, setM<span class="cstat-no" title="statement not covered" >] = useState(null);</span>
-  const [s, setS<span class="cstat-no" title="statement not covered" >] = useState(null);</span>
-  const [err, setErr<span class="cstat-no" title="statement not covered" >] = useState('');</span>
+export default function Statistics() {
+  const [m, setM] = useState(null);
+  const [s, setS] = useState(null);
+  const [err, setErr] = useState('');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >    Promise.all([api('/stats/monthly'), api('/stats/summary')]).then(<span class="fstat-no" title="function not covered" >([</span>a, b]) =&gt; { <span class="cstat-no" title="statement not covered" >setM(a); <span class="cstat-no" title="statement not covered" >s</span>etS(b); }</span>).catch(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setErr(e.message))</span>;</span>
+  useEffect(() =&gt; {
+    Promise.all([api('/stats/monthly'), api('/stats/summary')]).then(([a, b]) =&gt; { setM(a); setS(b); }).catch(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setErr(e.message))</span>;
   }, []);
-<span class="cstat-no" title="statement not covered" >  if (err) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Statistik perkembangan&lt;/h1&gt;&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;&lt;/&gt;;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (!m) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Statistik perkembangan&lt;/h1&gt;&lt;p role="status"&gt;Memuat…&lt;/p&gt;&lt;/&gt;;</span></span>
-  const max = <span class="cstat-no" title="statement not covered" >Math.max(1, ...m.map(<span class="fstat-no" title="function not covered" >(x</span>) =&gt; <span class="cstat-no" title="statement not covered" >x.total)</span>);</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Statistik perkembangan&lt;/h1&gt;&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;&lt;/&gt;;</span>
+  if (!m) return &lt;&gt;&lt;h1&gt;Statistik perkembangan&lt;/h1&gt;&lt;p role="status"&gt;Memuat…&lt;/p&gt;&lt;/&gt;;
+  const max = Math.max(1, ...m.map((x) =&gt; x.total));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;h1&gt;Statistik perkembangan&lt;/h1&gt;
       &lt;section className="card"&gt;
@@ -198,11 +198,11 @@ export default function <span class="fstat-no" title="function not covered" >Sta
 &nbsp;
       &lt;section className="card"&gt;
         &lt;h2&gt;Lamaran per bulan&lt;/h2&gt;
-        {m.length === 0 ? &lt;p className="muted"&gt;Belum ada data.&lt;/p&gt; : (
+        {m.length === 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;p className="muted"&gt;Belum ada data.&lt;/p&gt; : (</span>
           &lt;&gt;
-            &lt;div className="chart" role="img" aria-label={`Grafik batang jumlah lamaran per bulan: ${m.map(<span class="fstat-no" title="function not covered" >(x</span>) =&gt; <span class="cstat-no" title="statement not covered" >`${fmtMonth(x.month)} ${x.total} lamaran, ${x.interview} wawancara`)</span>.join('; ')}`}&gt;
-              {m.map(<span class="fstat-no" title="function not covered" >(x</span>) =&gt; (
-<span class="cstat-no" title="statement not covered" >                &lt;div key={x.month} className="col"&gt;</span>
+            &lt;div className="chart" role="img" aria-label={`Grafik batang jumlah lamaran per bulan: ${m.map((x) =&gt; `${fmtMonth(x.month)} ${x.total} lamaran, ${x.interview} wawancara`).join('; ')}`}&gt;
+              {m.map((x) =&gt; (
+                &lt;div key={x.month} className="col"&gt;
                   &lt;div className="bars"&gt;
                     &lt;div className="bar total" style={{ height: `${(x.total / max) * 100}%` }}&gt;&lt;span&gt;{x.total}&lt;/span&gt;&lt;/div&gt;
                     &lt;div className="bar iv" style={{ height: `${(x.interview / max) * 100}%` }}&gt;&lt;span&gt;{x.interview}&lt;/span&gt;&lt;/div&gt;
@@ -219,7 +219,7 @@ export default function <span class="fstat-no" title="function not covered" >Sta
       &lt;section className="card"&gt;
         &lt;h2&gt;Distribusi status&lt;/h2&gt;
         &lt;ul className="list"&gt;
-          {Object.entries(STATUS).map(<span class="fstat-no" title="function not covered" >([</span>k, v]) =&gt; <span class="cstat-no" title="statement not covered" >&lt;li key={k} className="row between"&gt;&lt;span&gt;{v}&lt;/span&gt;&lt;strong&gt;{s.byStatus[k]}&lt;/strong&gt;&lt;/li&gt;)</span>}
+          {Object.entries(STATUS).map(([k, v]) =&gt; &lt;li key={k} className="row between"&gt;&lt;span&gt;{v}&lt;/span&gt;&lt;strong&gt;{s.byStatus[k]}&lt;/strong&gt;&lt;/li&gt;)}
         &lt;/ul&gt;
       &lt;/section&gt;
     &lt;/&gt;
@@ -232,7 +232,7 @@ export default function <span class="fstat-no" title="function not covered" >Sta
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-27T01:14:42.855Z
+                at 2026-10-27T01:17:12.974Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

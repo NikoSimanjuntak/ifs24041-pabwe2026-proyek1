@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>6/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
@@ -97,16 +97,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,17 +125,17 @@
 import { api } from '../api.js';
 import { useAuth } from '../auth.jsx';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Profile() {</span>
-  const { user, setUser <span class="cstat-no" title="statement not covered" >} = useAuth();</span>
-  const [name, setName<span class="cstat-no" title="statement not covered" >] = useState(user.name);</span>
-  const [msg, setMsg<span class="cstat-no" title="statement not covered" >] = useState('');</span>
-  const [err, setErr<span class="cstat-no" title="statement not covered" >] = useState('');</span>
+export default function Profile() {
+  const { user, setUser } = useAuth();
+  const [name, setName] = useState(user.name);
+  const [msg, setMsg] = useState('');
+  const [err, setErr] = useState('');
 &nbsp;
-  const save = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (e</span>) =&gt; {</span>
+  const save = <span class="fstat-no" title="function not covered" >async (e</span>) =&gt; {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault(); <span class="cstat-no" title="statement not covered" >s</span>etMsg(''); <span class="cstat-no" title="statement not covered" >s</span>etErr('');</span>
 <span class="cstat-no" title="statement not covered" >    try { <span class="cstat-no" title="statement not covered" >setUser(await api('/auth/me', { method: 'PUT', body: { name } })); <span class="cstat-no" title="statement not covered" >s</span>etMsg('Profil berhasil disimpan'); }</span> catch (x) { <span class="cstat-no" title="statement not covered" >setErr(x.message); }</span></span>
   };
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;h1&gt;Profil&lt;/h1&gt;
       &lt;form className="card auth-inline" onSubmit={save}&gt;
@@ -143,8 +143,8 @@ export default function <span class="fstat-no" title="function not covered" >Pro
         &lt;input id="email" value={user.email} disabled /&gt;
         &lt;label htmlFor="name"&gt;Nama&lt;/label&gt;
         &lt;input id="name" required value={name} onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setName(e.target.value)} /</span>&gt;
-        {err &amp;&amp; &lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;}
-        {msg &amp;&amp; &lt;p className="ok" role="status"&gt;{msg}&lt;/p&gt;}
+        {err &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;}</span>
+        {msg &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;p className="ok" role="status"&gt;{msg}&lt;/p&gt;}</span>
         &lt;button className="btn" type="submit"&gt;Simpan&lt;/button&gt;
       &lt;/form&gt;
     &lt;/&gt;
@@ -157,7 +157,7 @@ export default function <span class="fstat-no" title="function not covered" >Pro
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-27T01:14:42.855Z
+                at 2026-10-27T01:17:12.974Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

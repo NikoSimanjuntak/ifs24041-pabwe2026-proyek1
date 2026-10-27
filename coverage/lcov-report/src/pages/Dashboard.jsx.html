@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>14/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">92.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>12/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,36 +113,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,38 +156,38 @@ import { Link } from 'react-router-dom';
 import { api } from '../api.js';
 import { TYPE, fmtDateTime } from '../constants.js';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Dashboard() {</span>
-  const [s, setS<span class="cstat-no" title="statement not covered" >] = useState(null);</span>
-  const [up, setUp<span class="cstat-no" title="statement not covered" >] = useState([]);</span>
-  const [err, setErr<span class="cstat-no" title="statement not covered" >] = useState('');</span>
+export default function Dashboard() {
+  const [s, setS] = useState(null);
+  const [up, setUp] = useState([]);
+  const [err, setErr] = useState('');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >    Promise.all([api('/stats/summary'), api('/schedules?upcoming=1')])</span>
-      .then(<span class="fstat-no" title="function not covered" >([</span>a, b]) =&gt; { <span class="cstat-no" title="statement not covered" >setS(a); <span class="cstat-no" title="statement not covered" >s</span>etUp(b.slice(0, 5)); }</span>)
+  useEffect(() =&gt; {
+    Promise.all([api('/stats/summary'), api('/schedules?upcoming=1')])
+      .then(([a, b]) =&gt; { setS(a); setUp(b.slice(0, 5)); })
       .catch(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setErr(e.message))</span>;
   }, []);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (err) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;&lt;/&gt;;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (!s) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;p role="status"&gt;Memuat…&lt;/p&gt;&lt;/&gt;;</span></span>
-  const cards = <span class="cstat-no" title="statement not covered" >[</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return &lt;&gt;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;&lt;/&gt;;</span>
+  if (!s) return &lt;&gt;&lt;h1&gt;Dashboard&lt;/h1&gt;&lt;p role="status"&gt;Memuat…&lt;/p&gt;&lt;/&gt;;
+  const cards = [
     ['Total lamaran', s.total], ['Terkirim', s.byStatus.sudah_melamar], ['Wawancara', s.byStatus.wawancara],
     ['Diterima', s.byStatus.diterima], ['Ditolak', s.byStatus.ditolak],
   ];
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;h1&gt;Dashboard&lt;/h1&gt;
       &lt;section aria-label="Ringkasan lamaran" className="grid"&gt;
-        {cards.map(<span class="fstat-no" title="function not covered" >([</span>l, n]) =&gt; (
-<span class="cstat-no" title="statement not covered" >          &lt;div key={l} className="card stat"&gt;&lt;span className="num"&gt;{n}&lt;/span&gt;&lt;span&gt;{l}&lt;/span&gt;&lt;/div&gt;</span>
+        {cards.map(([l, n]) =&gt; (
+          &lt;div key={l} className="card stat"&gt;&lt;span className="num"&gt;{n}&lt;/span&gt;&lt;span&gt;{l}&lt;/span&gt;&lt;/div&gt;
         ))}
       &lt;/section&gt;
       &lt;section className="card"&gt;
         &lt;h2&gt;Jadwal terdekat&lt;/h2&gt;
-        {up.length === 0 ? &lt;p className="muted"&gt;Belum ada jadwal. &lt;Link to="/schedules"&gt;Tambah jadwal&lt;/Link&gt;&lt;/p&gt; : (
+        {up.length === 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;p className="muted"&gt;Belum ada jadwal. &lt;Link to="/schedules"&gt;Tambah jadwal&lt;/Link&gt;&lt;/p&gt; : (</span>
           &lt;ul className="list"&gt;
-            {up.map(<span class="fstat-no" title="function not covered" >(x</span>) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;li key={x.id}&gt;&lt;strong&gt;{x.title}&lt;/strong&gt; &lt;span className="badge"&gt;{TYPE[x.type]}&lt;/span&gt;&lt;br /&gt;</span>
-                &lt;span className="muted"&gt;{fmtDateTime(x.scheduled_at)}{x.company ? ` · ${x.company}` : ''}&lt;/span&gt;&lt;/li&gt;
+            {up.map((x) =&gt; (
+              &lt;li key={x.id}&gt;&lt;strong&gt;{x.title}&lt;/strong&gt; &lt;span className="badge"&gt;{TYPE[x.type]}&lt;/span&gt;&lt;br /&gt;
+                &lt;span className="muted"&gt;{fmtDateTime(x.scheduled_at)}{x.company ? ` · ${x.company}` : <span class="branch-1 cbranch-no" title="branch not covered" >''}&lt;</span>/span&gt;&lt;/li&gt;
             ))}
           &lt;/ul&gt;
         )}
@@ -202,7 +202,7 @@ export default function <span class="fstat-no" title="function not covered" >Das
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-27T01:14:42.855Z
+                at 2026-10-27T01:17:12.974Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
