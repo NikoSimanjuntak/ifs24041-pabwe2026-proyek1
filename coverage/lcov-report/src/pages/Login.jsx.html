@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.63% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/11</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,30 +93,40 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,11 +142,16 @@ export default function Login() {
   const nav = useNavigate();
   const [f, setF] = useState({ email: '', password: '' });
   const [err, setErr] = useState('');
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (user) <span class="cstat-no" title="statement not covered" >return &lt;Navigate to="/dashboard" replace /&gt;;</span>
+  if (user) return &lt;Navigate to="/dashboard" replace /&gt;;
 &nbsp;
-  const submit = <span class="fstat-no" title="function not covered" >async (e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-<span class="cstat-no" title="statement not covered" >    try { <span class="cstat-no" title="statement not covered" >await login(f.email, f.password); <span class="cstat-no" title="statement not covered" >n</span>av('/dashboard'); }</span> catch (x) { <span class="cstat-no" title="statement not covered" >setErr(x.message); }</span></span>
+  const submit = async (e) =&gt; {
+    e.preventDefault();
+    try {
+      await login(f.email, f.password);
+      nav('/dashboard');
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   return (
     &lt;main className="auth card"&gt;
@@ -144,10 +159,10 @@ export default function Login() {
       &lt;p className="muted"&gt;Kelola semua lamaran magangmu di satu tempat.&lt;/p&gt;
       &lt;form onSubmit={submit}&gt;
         &lt;label htmlFor="username"&gt;Email&lt;/label&gt;
-        &lt;input id="username" name="username" type="email" autoComplete="email" required value={f.email} onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setF({ ...f, email: e.target.value })} /</span>&gt;
+        &lt;input id="username" name="username" type="email" autoComplete="email" required value={f.email} onChange={(e) =&gt; setF({ ...f, email: e.target.value })} /&gt;
         &lt;label htmlFor="password"&gt;Password&lt;/label&gt;
-        &lt;input id="password" name="password" type="password" autoComplete="current-password" required value={f.password} onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setF({ ...f, password: e.target.value })} /</span>&gt;
-        {err &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;}</span>
+        &lt;input id="password" name="password" type="password" autoComplete="current-password" required value={f.password} onChange={(e) =&gt; setF({ ...f, password: e.target.value })} /&gt;
+        {err &amp;&amp; &lt;p className="error" role="alert"&gt;{err}&lt;/p&gt;}
         &lt;button id="btn-submit" className="btn" type="submit"&gt;Masuk&lt;/button&gt;
       &lt;/form&gt;
       &lt;p&gt;Belum punya akun? &lt;Link to="/auth/register"&gt;Daftar&lt;/Link&gt;&lt;/p&gt;
@@ -160,7 +175,7 @@ export default function Login() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-27T01:17:12.974Z
+                at 2026-10-27T01:50:36.602Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
