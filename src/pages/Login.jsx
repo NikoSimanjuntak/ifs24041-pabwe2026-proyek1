@@ -11,7 +11,12 @@ export default function Login() {
 
   const submit = async (e) => {
     e.preventDefault();
-    try { await login(f.email, f.password); nav('/dashboard'); } catch (x) { setErr(x.message); }
+    try {
+      await login(f.email, f.password);
+      nav('/dashboard');
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   return (
     <main className="auth card">

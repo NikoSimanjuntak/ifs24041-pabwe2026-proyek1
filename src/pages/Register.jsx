@@ -11,7 +11,12 @@ export default function Register() {
 
   const submit = async (e) => {
     e.preventDefault();
-    try { await register(f.name, f.email, f.password); nav('/dashboard'); } catch (x) { setErr(x.message); }
+    try {
+      await register(f.name, f.email, f.password);
+      nav('/dashboard');
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
   return (

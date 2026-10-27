@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import { api } from './api.js';
 
 const Ctx = createContext(null);
@@ -15,14 +16,36 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const onExpired = () => setUser(null);
-    window.addEventListener('auth:expired', onExpired);
-    return () => window.removeEventListener('auth:expired', onExpired);
+    globalThis.addEventListener('auth:expired', onExpired);
+    return () => globalThis.removeEventListener('auth:expired', onExpired);
   }, []);
 
-  const finish = useCallback((data) => { localStorage.setItem('token', data.token); setUser(data.user); }, []);
-  const login = async (email, password) => finish(await api('/auth/login', { method: 'POST', body: { email, password } }));
-  const register = async (name, email, password) => finish(await api('/auth/register', { method: 'POST', body: { name, email, password } }));
-  const logout = () => { localStorage.removeItem('token'); setUser(null); };
+  const finish = useCallback((data) => {
+    localStorage.setItem('token', data.token);
+    setUser(data.user);
+  }, []);
 
-  return <Ctx.Provider value={{ user, setUser, loading, login, register, logout }}>{children}</Ctx.Provider>;
+  const login = useCallback(
+    async (email, password) => finish(await api('/auth/login', { method: 'POST', body: { email, password } })),
+    [finish]
+  );
+  const register = useCallback(
+    async (name, email, password) => finish(await api('/auth/register', { method: 'POST', body: { name, email, password } })),
+    [finish]
+  );
+  const logout = useCallback(() => {
+    localStorage.removeItem('token');
+    setUser(null);
+  }, []);
+
+  const value = useMemo(
+    () => ({ user, setUser, loading, login, register, logout }),
+    [user, loading, login, register, logout]
+  );
+
+  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};

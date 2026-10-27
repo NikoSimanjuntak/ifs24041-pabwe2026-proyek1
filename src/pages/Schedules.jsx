@@ -16,15 +16,32 @@ export default function Schedules() {
   useEffect(() => { load(); api('/applications').then(setApps).catch(() => {}); }, [load]);
 
   const save = async (e) => {
-    e.preventDefault(); setErr('');
-    try { await api('/schedules', { method: 'POST', body: form }); setForm(empty); load(); } catch (x) { setErr(x.message); }
+    e.preventDefault();
+    setErr('');
+    try {
+      await api('/schedules', { method: 'POST', body: form });
+      setForm(empty);
+      load();
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const toggle = async (r) => {
-    try { await api(`/schedules/${r.id}`, { method: 'PUT', body: { ...r, done: !r.done } }); load(); } catch (x) { setErr(x.message); }
+    try {
+      await api(`/schedules/${r.id}`, { method: 'PUT', body: { ...r, done: !r.done } });
+      load();
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const remove = async (r) => {
-    if (!window.confirm(`Hapus jadwal "${r.title}"?`)) return;
-    try { await api(`/schedules/${r.id}`, { method: 'DELETE' }); load(); } catch (x) { setErr(x.message); }
+    if (!globalThis.confirm(`Hapus jadwal "${r.title}"?`)) return;
+    try {
+      await api(`/schedules/${r.id}`, { method: 'DELETE' });
+      load();
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 

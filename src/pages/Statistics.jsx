@@ -11,8 +11,11 @@ export default function Statistics() {
     Promise.all([api('/stats/monthly'), api('/stats/summary')]).then(([a, b]) => { setM(a); setS(b); }).catch((e) => setErr(e.message));
   }, []);
   if (err) return <><h1>Statistik perkembangan</h1><p className="error" role="alert">{err}</p></>;
-  if (!m) return <><h1>Statistik perkembangan</h1><p role="status">Memuat…</p></>;
+  if (!m) return <><h1>Statistik perkembangan</h1><output>Memuat…</output></>;
   const max = Math.max(1, ...m.map((x) => x.total));
+  const description = m
+    .map((x) => `${fmtMonth(x.month)}: ${x.total} lamaran, ${x.interview} wawancara`)
+    .join('; ');
 
   return (
     <>
@@ -27,17 +30,20 @@ export default function Statistics() {
         <h2>Lamaran per bulan</h2>
         {m.length === 0 ? <p className="muted">Belum ada data.</p> : (
           <>
-            <div className="chart" role="img" aria-label={`Grafik batang jumlah lamaran per bulan: ${m.map((x) => `${fmtMonth(x.month)} ${x.total} lamaran, ${x.interview} wawancara`).join('; ')}`}>
-              {m.map((x) => (
-                <div key={x.month} className="col">
-                  <div className="bars">
-                    <div className="bar total" style={{ height: `${(x.total / max) * 100}%` }}><span>{x.total}</span></div>
-                    <div className="bar iv" style={{ height: `${(x.interview / max) * 100}%` }}><span>{x.interview}</span></div>
+            <figure className="chart-figure">
+              <figcaption className="sr-only">Grafik batang jumlah lamaran per bulan. {description}</figcaption>
+              <div className="chart" aria-hidden="true">
+                {m.map((x) => (
+                  <div key={x.month} className="col">
+                    <div className="bars">
+                      <div className="bar total" style={{ height: `${(x.total / max) * 100}%` }}><span>{x.total}</span></div>
+                      <div className="bar iv" style={{ height: `${(x.interview / max) * 100}%` }}><span>{x.interview}</span></div>
+                    </div>
+                    <small>{fmtMonth(x.month)}</small>
                   </div>
-                  <small>{fmtMonth(x.month)}</small>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </figure>
             <p className="legend"><span className="dot total" /> Lamaran terkirim <span className="dot iv" /> Lanjut wawancara</p>
           </>
         )}

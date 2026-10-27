@@ -12,21 +12,32 @@ export default function Applications() {
 
   const load = useCallback(() => {
     const qs = new URLSearchParams(Object.entries(flt).filter(([, v]) => v)).toString();
-    api(`/applications${qs ? `?${qs}` : ''}`).then(setRows).catch((e) => setErr(e.message));
+    const suffix = qs ? '?' + qs : '';
+    api(`/applications${suffix}`).then(setRows).catch((e) => setErr(e.message));
   }, [flt]);
   useEffect(() => { load(); }, [load]);
 
   const save = async (e) => {
-    e.preventDefault(); setErr('');
+    e.preventDefault();
+    setErr('');
     try {
       const body = { ...form };
-      form.id ? await api(`/applications/${form.id}`, { method: 'PUT', body }) : await api('/applications', { method: 'POST', body });
-      setForm(null); load();
-    } catch (x) { setErr(x.message); }
+      if (form.id) await api(`/applications/${form.id}`, { method: 'PUT', body });
+      else await api('/applications', { method: 'POST', body });
+      setForm(null);
+      load();
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const remove = async (r) => {
-    if (!window.confirm(`Hapus lamaran ${r.company} - ${r.position}?`)) return;
-    try { await api(`/applications/${r.id}`, { method: 'DELETE' }); load(); } catch (x) { setErr(x.message); }
+    if (!globalThis.confirm(`Hapus lamaran ${r.company} - ${r.position}?`)) return;
+    try {
+      await api(`/applications/${r.id}`, { method: 'DELETE' });
+      load();
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const setF = (k) => (e) => setFlt({ ...flt, [k]: e.target.value });

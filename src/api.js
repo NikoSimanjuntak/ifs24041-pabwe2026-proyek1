@@ -9,7 +9,10 @@ export async function api(path, { method = 'GET', body } = {}) {
   });
   const data = res.status === 204 ? null : await res.json().catch(() => null);
   if (!res.ok) {
-    if (res.status === 401 && token) { localStorage.removeItem('token'); window.dispatchEvent(new Event('auth:expired')); }
+    if (res.status === 401 && token) {
+      localStorage.removeItem('token');
+      globalThis.dispatchEvent(new Event('auth:expired'));
+    }
     throw new Error(data?.message || 'Terjadi kesalahan');
   }
   return data;

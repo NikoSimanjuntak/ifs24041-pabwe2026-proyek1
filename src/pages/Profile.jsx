@@ -9,8 +9,15 @@ export default function Profile() {
   const [err, setErr] = useState('');
 
   const save = async (e) => {
-    e.preventDefault(); setMsg(''); setErr('');
-    try { setUser(await api('/auth/me', { method: 'PUT', body: { name } })); setMsg('Profil berhasil disimpan'); } catch (x) { setErr(x.message); }
+    e.preventDefault();
+    setMsg('');
+    setErr('');
+    try {
+      setUser(await api('/auth/me', { method: 'PUT', body: { name } }));
+      setMsg('Profil berhasil disimpan');
+    } catch (error_) {
+      setErr(error_.message);
+    }
   };
   return (
     <>
@@ -21,7 +28,7 @@ export default function Profile() {
         <label htmlFor="name">Nama</label>
         <input id="name" required value={name} onChange={(e) => setName(e.target.value)} />
         {err && <p className="error" role="alert">{err}</p>}
-        {msg && <p className="ok" role="status">{msg}</p>}
+        {msg && <output className="ok">{msg}</output>}
         <button className="btn" type="submit">Simpan</button>
       </form>
     </>

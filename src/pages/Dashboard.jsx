@@ -15,7 +15,7 @@ export default function Dashboard() {
   }, []);
 
   if (err) return <><h1>Dashboard</h1><p className="error" role="alert">{err}</p></>;
-  if (!s) return <><h1>Dashboard</h1><p role="status">Memuat…</p></>;
+  if (!s) return <><h1>Dashboard</h1><output>Memuat…</output></>;
   const cards = [
     ['Total lamaran', s.total], ['Terkirim', s.byStatus.sudah_melamar], ['Wawancara', s.byStatus.wawancara],
     ['Diterima', s.byStatus.diterima], ['Ditolak', s.byStatus.ditolak],
